@@ -1,0 +1,170 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Aug 14, 2018 at 11:30 AM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `lms`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `administrator`
+--
+
+CREATE TABLE `administrator` (
+  `id` int(11) NOT NULL,
+  `fullnames` varchar(150) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `administrator`
+--
+
+INSERT INTO `administrator` (`id`, `fullnames`, `username`, `password`) VALUES
+(1, 'Administrator', 'admin', 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `EPN` int(11) NOT NULL,
+  `fullnames` varchar(150) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(150) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `contact` int(10) NOT NULL,
+  `salary` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`EPN`, `fullnames`, `username`, `password`, `email`, `contact`, `salary`) VALUES
+(1, 'conrad mugi', 'conrad', 'conrad', 'conrad@gmail.com', 70685427, 2000000000),
+(14, 'bongo onneee', 'bongo', '123', 'bogo@yahoo.com', 7354125, 12345456778);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loan`
+--
+
+CREATE TABLE `loan` (
+  `loan_id` int(11) NOT NULL,
+  `loan_interest` int(11) NOT NULL,
+  `loan_range` varchar(100) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `loan_period` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `loan`
+--
+
+INSERT INTO `loan` (`loan_id`, `loan_interest`, `loan_range`, `type`, `loan_period`) VALUES
+(1, 10, '50000-100000', 'Quick loan', 10),
+(2, 10, '500000-10000000', 'School Fees loan', 30),
+(3, 15, '1000000-10000000', 'Salary loan', 35),
+(4, 10, '1500000-3000000', 'School Fees loan', 30),
+(5, 15, '500000-2000000', 'School Fees loan', 60);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loan_applicants`
+--
+
+CREATE TABLE `loan_applicants` (
+  `id` int(11) NOT NULL,
+  `EPN` int(11) NOT NULL,
+  `loan` int(11) NOT NULL,
+  `due_date` date NOT NULL,
+  `interest_rate` int(11) NOT NULL,
+  `status` varchar(30) NOT NULL,
+  `date_applied` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `loan_status` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `administrator`
+--
+ALTER TABLE `administrator`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`EPN`);
+
+--
+-- Indexes for table `loan`
+--
+ALTER TABLE `loan`
+  ADD PRIMARY KEY (`loan_id`);
+
+--
+-- Indexes for table `loan_applicants`
+--
+ALTER TABLE `loan_applicants`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `administrator`
+--
+ALTER TABLE `administrator`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `EPN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `loan`
+--
+ALTER TABLE `loan`
+  MODIFY `loan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `loan_applicants`
+--
+ALTER TABLE `loan_applicants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

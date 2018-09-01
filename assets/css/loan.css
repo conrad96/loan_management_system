@@ -1,0 +1,39 @@
+.header{
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	text-shadow: 3px 5px 5px gray;
+}
+.login_form{
+	padding-top: 120px;
+	padding-left: 400px;
+}
+#login_btn{
+	width: 300px;
+}
+#reg_emp_btn{
+	width: 450px;
+}
+#in_f{
+	height: 40px;
+	width: 300px;
+}
+#in_r{
+	height: 40px;
+	width: 450px;
+}
+#msg{
+	font-size: 15px;
+	text-transform: capitalize;
+	text-orientation: italic;
+}
+.reg_emp_form{
+padding-top: 60px;
+padding-left: 300px;
+}
+.reg_loan_form{
+padding-top: 60px;
+padding-left: 300px;
+padding-right: 300px;
+}
