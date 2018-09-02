@@ -99,13 +99,13 @@ if(isset($loans)){
     <div class="form-group">
     <label class="col-md-3">EPN<em class='text-danger'>*</em></label>
     <div class="col-md-6">
-    <input type="text" name="epn"  value='<?php echo (!empty($epn))? $epn:""; ?>' class="form-control" />
+    <input type="text" name="EPN"  value='<?php echo (!empty($epn))? $epn:""; ?>' class="form-control" />
     </div>
     </div>
   <div class="form-group">
   <label class="col-md-3">Names<em class='text-danger'>*</em></label>
   <div class="col-md-6">
-  <input type="text" name="names"  value='<?php echo (!empty($reg_names))? $reg_names:""; ?>' class="form-control" />
+  <input type="text" name="fullnames"  value='<?php echo (!empty($reg_names))? $reg_names:""; ?>' class="form-control" />
   </div>
   </div>
   <div class="form-group">
@@ -117,7 +117,7 @@ if(isset($loans)){
   <div class="form-group">
   <label class="col-md-3">Loan Type<em class='text-danger'>*</em></label>
   <div class="col-md-6">
-  <select class="form-control" name="type">
+  <select class="form-control" name="loan_type">
 <option selected disabled>--Choose--</option>
 <?php
 if(!empty($loans)){
@@ -131,6 +131,7 @@ if(!empty($loans)){
   </select>
   </div>
   </div>
+  <input type="hidden" name="status" value="pending" />
   <div class="form-group">
   <label class="col-md-3">Amount<em class='text-danger'>*</em></label>
   <div class="col-md-6">
@@ -146,7 +147,7 @@ if(!empty($loans)){
   <div class="form-group">
   <label class="col-md-3">Basic Salary<em class='text-danger'>*</em></label>
   <div class="col-md-6">
-  <input type="text"  value='<?php echo (!empty($sal))? $sal:""; ?>' class="form-control" name="sal"/>
+  <input type="text"  value='<?php echo (!empty($sal))? $sal:""; ?>' class="form-control" name="salary"/>
   </div>
   </div>
   <div class="form-group">

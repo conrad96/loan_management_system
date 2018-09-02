@@ -247,8 +247,7 @@ public function employee_forms($id,$name){
 	$this->load->view('employee-forms',$data);
 }
 public function loan_applications($id,$name){
-	$package=array($this->input->post("epn"),$this->input->post("names"),$this->input->post("section"),$this->input->post("type"),$this->input->post("loan_amount"),$this->input->post("reason"),$this->input->post("sal"));
-	$bool=$this->Tasks->loan_application_form($package);
+	$bool=$this->Tasks->loan_application_form($this->input->post(NULL,TRUE));
 	if($bool){
 		$data['id']=$id;
 		$data['uname']=$name;

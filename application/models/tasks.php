@@ -53,15 +53,17 @@ return ($this->db->insert("loan",$data))? true:false;
 		return ($this->db->affected_rows() == 1)? true:false;
 	}
 	public function loan_application_form($array){
-		$data['EPN']=$array[0];
-		$data['fullnames']=$array[1];
-		$data['section']=$array[2];
-		$data['salary']=$array[6];
-		$data['loan_type']=$array[3];
-		$data['loan_amount']=$array[4];
-		$data['status']="pending";
-		$data['reason']=$array[5];
-		return ($this->db->insert("loan_applications",$data))? true:false;
+		// $form['EPN']=$array[0];
+		// $form['fullnames']=$array[1];
+		// $form['section']=$array[2];
+		// $form['salary']=$array[6];
+		// $form['loan_type']=$array[3];
+		// $form['loan_amount']=$array[4];
+		// $form['status']="pending";
+		// $form['reason']=$array[5];
+		// return $form;
+		// exit();
+		return ($this->db->insert("loan_applications",$array))? true:false;
 	}
 	public function emp_activity($id){
 		$query=$this->db->select("*")->from("loan_applications")->where("EPN",$id)->where("status","pending")->get()->result();
